@@ -25,12 +25,29 @@ LLM エージェント評価向け OpenTelemetry ビューワー。
 ## クイックスタート
 
 ```bash
-# Tempo + Collector + demo-agent + viewer を起動
-docker compose -f docker/compose.demo.yml up
+# ビルド(SPA → Go バイナリへ埋め込み、bin/otel-viewer)
+make build
+
+# 起動
+./bin/otel-viewer -addr :8080 -db local.duckdb
+
+# 別ターミナルで合成トレースを投入(opus/haiku を同一タスクで実行、replay
+# 連携、フィードバック、ツールエラーを含む)
+./bin/demo-agent -endpoint http://localhost:8080/v1/traces
 
 # ブラウザで開く
 open http://localhost:8080
 ```
+
+`bin/demo-agent` は実際の LLM API は叩かず、OTel GenAI semconv に沿った
+合成 trace を作って OTLP/HTTP receiver に投入する。UI で:
+
+- `/traces` でモデル別の run 一覧、複数選択 → Compare
+- `/tasks` で同一タスクのモデル別集約 → 任意の 2..4 を選んで Compare
+- `/analytics/frequency` でツール呼び出しの成功率や遅延分布
+- `/feedback` でスコア閾値以下の run の triage
+
+を確認できる。
 
 ## 開発
 
