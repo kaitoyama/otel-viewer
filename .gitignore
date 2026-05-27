@@ -1,0 +1,29 @@
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+coverage.*
+.env
+.env.local
+
+# Go
+/vendor/
+
+# Frontend
+web/node_modules/
+web/dist/
+web/.vite/
+web/coverage/
+
+# DuckDB data files
+*.duckdb
+*.duckdb.wal
+*.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
