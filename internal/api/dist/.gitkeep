@@ -1,0 +1,2 @@
+Vite emits the built SPA into this directory. The .gitkeep keeps the path
+present for go:embed at compile time even before the first frontend build.

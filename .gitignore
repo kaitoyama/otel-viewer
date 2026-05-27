@@ -15,6 +15,11 @@ web/node_modules/
 web/dist/
 web/.vite/
 web/coverage/
+web/tsconfig.tsbuildinfo
+
+# Vite output is emitted into the Go embed dir; only the .gitkeep is tracked.
+internal/api/dist/*
+!internal/api/dist/.gitkeep
 
 # DuckDB data files
 *.duckdb

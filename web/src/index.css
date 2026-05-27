@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1 rounded border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-sm hover:bg-zinc-800;
+  }
+  .btn-primary {
+    @apply border-emerald-600 bg-emerald-600/20 text-emerald-200 hover:bg-emerald-600/30;
+  }
+  .pill {
+    @apply inline-flex items-center rounded-full border border-zinc-700 bg-zinc-900 px-2 py-0.5 text-xs;
+  }
+  .table {
+    @apply w-full border-collapse text-sm;
+  }
+  .table th {
+    @apply border-b border-zinc-800 px-3 py-2 text-left font-medium text-zinc-400;
+  }
+  .table td {
+    @apply border-b border-zinc-900 px-3 py-2 align-top;
+  }
+  .input {
+    @apply rounded border border-zinc-700 bg-zinc-900 px-2 py-1 text-sm placeholder:text-zinc-500;
+  }
+}
