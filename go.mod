@@ -5,7 +5,7 @@ go 1.24.0
 toolchain go1.24.7
 
 require (
-	github.com/go-chi/chi/v5 v5.3.0
+	github.com/go-chi/chi/v5 v5.4.0
 	github.com/google/uuid v1.6.0
 	github.com/marcboeker/go-duckdb v1.8.5
 	github.com/stretchr/testify v1.10.0
